@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Choose Your Condiment</title>
+  <style>
+    body {
+      background: beige;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      max-width: 800px;
+      margin: 20px auto;
+      padding: 0 20px;
+      display: flex;
+    }
+    .condiment-selection {
+      flex: 1;
+      text-align: center;
+    }
+    .condiment-selection button {
+      background-color: saddlebrown;
+      color: beige;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin: 5px;
+    }
+    .order {
+      flex: 1;
+      padding-left: 20px;
+    }
+    h2 {
+      color: saddlebrown;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+    th, td {
+      border: 1px solid #ddd;
+      padding: 8px;
+      text-align: left;
+    }
+    th {
+      background-color: saddlebrown;
+      color: beige;
+    }
+    .order-buttons {
+      margin-top: 20px;
+    }
+    .order-buttons button {
+      background-color: saddlebrown;
+      color: beige;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-right: 10px;
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <div class="condiment-selection">
+    <h2>Choose your condiment</h2>
+    <button onclick="addCondiment('Milk')">Milk</button>
+    <button onclick="addCondiment('Mocha')">Mocha</button>
+    <button onclick="addCondiment('Soy')">Soy</button>
+    <button onclick="addCondiment('Whip')">Whip</button>
+  </div>
+  <div class="order">
+    <h2>My Order</h2>
+    <table>
+      <tr>
+        <th>Condiments</th>
+      </tr>
+    </table>
+    <div class="order-buttons">
+      <button onclick="location.href='beverage.html'">Select Beverage</button>
+      <button onclick="removeCondiment()">Remove Condiment</button>
+      <button onclick="location.href='orderConfirmation.html'">Confirm Order</button>
+    </div>
+  </div>
+</div>
+
+<script>
+  function addCondiment(condiment) {
+    const table = document.querySelector('table');
+    const row = table.insertRow();
+    const cell = row.insertCell();
+    cell.textContent = condiment;
+  }
+
+  function removeCondiment() {
+    const table = document.querySelector('table');
+    const rowCount = table.rows.length;
+    if (rowCount > 1) {
+      table.deleteRow(rowCount - 1);
+    }
+  }
+</script>
+</body>
+</html>
